@@ -11,19 +11,13 @@ export default function EmailSignup() {
     setStatus("loading");
 
     const formData = new FormData(e.currentTarget);
-    const honeypot = formData.get("website");
-    
-    if (honeypot) {
-      // Bot detected, silently succeed
-      setStatus("success");
-      return;
-    }
+    const website = formData.get("website");
 
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, website }),
       });
 
       if (res.ok) {
@@ -31,7 +25,7 @@ export default function EmailSignup() {
       } else {
         setStatus("error");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
     }
   };
@@ -49,7 +43,7 @@ export default function EmailSignup() {
         {status === "success" ? (
           <div className="bg-red-800/50 p-6 rounded-sm border border-red-700 w-full max-w-md animate-fade-in">
             <p className="font-heading text-3xl font-bold text-white uppercase tracking-wider">
-              You're in, Patriot! 🇺🇸
+              You&apos;re in, Patriot! 🇺🇸
             </p>
           </div>
         ) : (

@@ -13,10 +13,10 @@ export default function AboutSection() {
               For Americans
             </h2>
             <p className="font-body text-lg text-gray-700 mb-8 leading-relaxed">
-              Patriot Stuff was built for the Americans who aren't afraid to show their colors. 
+              Patriot Stuff was built for the Americans who aren&apos;t afraid to show their colors. 
               Every design, every product, every pick on this site is chosen with one thing in mind: 
-              pride in this country and the people who built it. Whether you're shopping for yourself 
-              or looking for the perfect patriot gift — you're in the right place.
+              pride in this country and the people who built it. Whether you&apos;re shopping for yourself 
+              or looking for the perfect patriot gift — you&apos;re in the right place.
             </p>
             <Link 
               href="#"
