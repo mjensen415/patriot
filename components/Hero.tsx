@@ -2,47 +2,52 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-patriot-navy overflow-hidden">
-      {/* Subtle Star Pattern Overlay */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B22222' fill-opacity='1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}
-        aria-hidden="true"
-      />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
-        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white font-bold uppercase tracking-tight mb-6 drop-shadow-lg">
-          American Made. <br className="hidden md:inline" />
-          Patriot Proud.
-        </h1>
-        
-        <p className="font-body text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
-          Shop patriot gear, gifts, and apparel built for real Americans.
-        </p>
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1600&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "grayscale(100%) brightness(0.4) contrast(1.25)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ps-surface via-transparent to-ps-surface/40 opacity-90" />
+      </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
-          <Link 
-            href="#products" 
-            className="w-full sm:w-auto px-8 py-4 bg-patriot-red hover:bg-red-800 text-white font-heading font-bold text-lg uppercase tracking-wider transition-colors shadow-md rounded-sm"
-          >
-            Shop the Store
-          </Link>
-          <Link 
-            href="#email-signup" 
-            className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-patriot-gold text-patriot-gold hover:bg-patriot-gold hover:text-patriot-navy font-heading font-bold text-lg uppercase tracking-wider transition-colors shadow-md rounded-sm"
-          >
-            Join the Patriots
-          </Link>
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        <div className="mb-6 flex justify-center">
+          <span className="bg-ps-gold-dark text-ps-gold font-headline font-black px-4 py-1 text-sm tracking-[0.2em] uppercase">
+            EST. 1776
+          </span>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-sm md:text-base font-body text-gray-400 font-semibold uppercase tracking-widest">
-          <span>★ 100% American Pride</span>
-          <span className="hidden md:inline">|</span>
-          <span>★ Ships Nationwide</span>
-          <span className="hidden md:inline">|</span>
-          <span>★ Veteran Owned</span>
+        <h1 className="text-6xl md:text-9xl font-headline font-black text-white leading-[0.9] tracking-tighter mb-8 italic">
+          BUILT FOR PATRIOTS.<br />
+          <span className="text-ps-red not-italic">MADE IN AMERICA.</span>
+        </h1>
+
+        <p className="text-lg md:text-2xl text-ps-muted font-medium max-w-2xl mx-auto mb-12 uppercase tracking-wide">
+          Gear, coffee, and lifestyle for those who never stopped believing in the mission.
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-6 justify-center">
+          <Link
+            href="#shop"
+            className="bg-ps-red hover:bg-ps-red/80 text-white font-headline font-black text-xl px-12 py-5 uppercase tracking-tight transition-all active:scale-95"
+          >
+            SHOP THE STORE
+          </Link>
+          <Link
+            href="#signup"
+            className="border-2 border-white/30 hover:border-white text-white font-headline font-black text-xl px-12 py-5 uppercase tracking-tight transition-all active:scale-95 bg-white/5 backdrop-blur-sm"
+          >
+            EXPLORE THE BRAND
+          </Link>
         </div>
       </div>
     </section>

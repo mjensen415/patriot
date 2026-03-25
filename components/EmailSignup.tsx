@@ -31,57 +31,90 @@ export default function EmailSignup() {
   };
 
   return (
-    <section id="email-signup" className="w-full bg-patriot-red py-20 px-4 sm:px-6 lg:px-8 text-center text-white">
-      <div className="max-w-3xl mx-auto flex flex-col items-center">
-        <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4 drop-shadow-sm">
-          Join the Patriot List
-        </h2>
-        <p className="font-body text-lg md:text-xl text-red-100 mb-8 max-w-2xl">
-          Get exclusive deals, new design drops, and patriot content — straight to your inbox. No spam. Unsubscribe anytime.
-        </p>
+    <section id="signup" className="py-24 bg-ps-container-lo border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
 
-        {status === "success" ? (
-          <div className="bg-red-800/50 p-6 rounded-sm border border-red-700 w-full max-w-md animate-fade-in">
-            <p className="font-heading text-3xl font-bold text-white uppercase tracking-wider">
-              You&apos;re in, Patriot! 🇺🇸
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="w-full max-w-xl flex flex-col sm:flex-row gap-3">
-            {/* Honeypot field for basic spam prevention */}
-            <input 
-              type="text" 
-              name="website" 
-              tabIndex={-1} 
-              autoComplete="off" 
-              className="hidden" 
-              aria-hidden="true" 
-            />
-            
-            <input
-              type="email"
-              name="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="flex-grow px-4 py-4 text-patriot-navy font-body outline-none focus:ring-2 focus:ring-patriot-gold rounded-sm placeholder-gray-500"
-              disabled={status === "loading"}
-            />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="px-8 py-4 bg-patriot-navy hover:bg-black text-patriot-gold font-heading font-bold text-lg uppercase tracking-wider transition-colors rounded-sm shadow-md whitespace-nowrap disabled:opacity-75 disabled:cursor-not-allowed"
-            >
-              {status === "loading" ? "Signing Up..." : "Sign Me Up"}
-            </button>
-          </form>
-        )}
-        {status === "error" && (
-          <p className="mt-4 text-sm font-semibold text-white bg-red-900/50 px-4 py-2 rounded">
-            Something went wrong. Please try again.
+          {/* Badge */}
+          <span className="inline-block bg-ps-red text-white font-headline font-black text-xs tracking-[0.25em] uppercase px-4 py-1.5 mb-8">
+            MISSION: GET INFORMED
+          </span>
+
+          <h2 className="font-headline font-black text-5xl md:text-7xl text-white uppercase tracking-tight leading-[0.9] mb-6">
+            JOIN THE<br />
+            <span className="text-ps-gold">INNER CIRCLE.</span>
+          </h2>
+
+          <p className="text-white/60 text-lg font-medium max-w-xl mx-auto mb-12 leading-relaxed">
+            Free downloads, new gear alerts, patriot intel, and exclusive drops — straight to your inbox. No spam. Unsubscribe anytime.
           </p>
-        )}
+
+          {/* What you get */}
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {[
+              "📋 Patriot Starter Pack",
+              "🎒 Bug-Out Checklist",
+              "⚖️ Know Your Rights Card",
+              "📜 Declaration Poster",
+            ].map((item) => (
+              <span key={item} className="text-white/50 text-sm font-headline font-bold uppercase tracking-wider flex items-center gap-2">
+                {item}
+              </span>
+            ))}
+          </div>
+
+          {/* Form */}
+          {status === "success" ? (
+            <div className="bg-ps-container border border-white/10 p-10">
+              <p className="font-headline font-black text-4xl text-white uppercase tracking-tight mb-2">
+                YOU&apos;RE IN, PATRIOT.
+              </p>
+              <p className="text-ps-gold font-headline font-bold text-sm uppercase tracking-[0.2em]">
+                Check your inbox for your free downloads.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-0 max-w-xl mx-auto">
+              {/* Honeypot field */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
+              <input
+                type="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="YOUR EMAIL ADDRESS"
+                className="flex-grow bg-ps-container border border-white/10 border-r-0 px-6 py-5 text-white font-headline font-bold text-sm uppercase tracking-widest placeholder-white/20 outline-none focus:border-ps-red transition-colors"
+                disabled={status === "loading"}
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-ps-red hover:bg-ps-red/80 text-white font-headline font-black text-sm uppercase tracking-widest px-8 py-5 transition-all active:scale-95 whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed border border-ps-red"
+              >
+                {status === "loading" ? "LOADING..." : "GET ACCESS →"}
+              </button>
+            </form>
+          )}
+
+          {status === "error" && (
+            <p className="mt-4 text-sm font-headline font-bold text-ps-red uppercase tracking-wider">
+              Something went wrong. Please try again.
+            </p>
+          )}
+
+          <p className="text-white/20 text-xs uppercase tracking-widest mt-8 font-medium">
+            No spam. No BS. Unsubscribe anytime.
+          </p>
+        </div>
       </div>
     </section>
   );

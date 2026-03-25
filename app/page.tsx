@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import CoffeeSection from "@/components/CoffeeSection";
 import AffiliatePicks from "@/components/AffiliatePicks";
 import EmailSignup from "@/components/EmailSignup";
-import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,9 +13,9 @@ export default function Home() {
       <div className="flex-grow">
         <Hero />
         <FeaturedProducts />
+        <CoffeeSection />
         <AffiliatePicks />
         <EmailSignup />
-        <AboutSection />
       </div>
       <Footer />
     </main>

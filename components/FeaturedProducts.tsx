@@ -1,75 +1,109 @@
 import Link from "next/link";
 
-const products = [
+const downloads = [
   {
     id: 1,
-    name: "Come and Take It Tee",
-    description: "Classic Gonzales cannon graphic.",
-    price: "From $24.99",
-    bgColor: "bg-patriot-red",
+    icon: "📋",
+    title: "Patriot Starter Pack",
+    description: "Everything you need to get started — founding docs, rights card, and prep checklist in one bundle.",
+    tag: "PDF BUNDLE",
   },
   {
     id: 2,
-    name: "Don't Tread On Me Hoodie",
-    description: "Gadsden snake design, heavyweight fleece.",
-    price: "From $44.99",
-    bgColor: "bg-patriot-navy",
+    icon: "🎒",
+    title: "72-Hour Bug-Out Checklist",
+    description: "Comprehensive go-bag list built for American families. Print it, laminate it, live it.",
+    tag: "PRINTABLE PDF",
   },
   {
     id: 3,
-    name: "Freedom Isn't Free Mug",
-    description: "15oz ceramic, dishwasher safe.",
-    price: "From $16.99",
-    bgColor: "bg-patriot-gold",
+    icon: "⚖️",
+    title: "Know Your Rights Card",
+    description: "Wallet-sized card covering your 1st, 2nd, 4th, and 5th Amendment rights in plain English.",
+    tag: "PRINTABLE CARD",
+  },
+  {
+    id: 4,
+    icon: "🏴",
+    title: "Betsy Ross Flag Art Print",
+    description: "High-resolution 18×24\" print-ready file. Frame it, hang it, fly it.",
+    tag: "PRINT ART · 300 DPI",
+  },
+  {
+    id: 5,
+    icon: "📜",
+    title: "1776 Declaration Poster",
+    description: "Parchment-styled declaration poster — the words that changed the world, ready for your wall.",
+    tag: "PRINT ART · 300 DPI",
+  },
+  {
+    id: 6,
+    icon: "🛡️",
+    title: "Emergency Prep Guide",
+    description: "30-day home preparedness roadmap with supply lists, communication plans, and evac routes.",
+    tag: "PDF GUIDE",
   },
 ];
 
 export default function FeaturedProducts() {
   return (
-    <section id="products" className="py-20 bg-white">
+    <section id="shop" className="py-24 bg-ps-surface border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-patriot-navy uppercase tracking-tight mb-4">
-            ★ Featured Gear
+
+        {/* Header */}
+        <div className="mb-16">
+          <span className="text-ps-gold font-headline font-black text-xs tracking-[0.25em] uppercase mb-4 block">
+            FREE DOWNLOADS
+          </span>
+          <h2 className="font-headline font-black text-4xl md:text-6xl text-white uppercase tracking-tight leading-[0.9] mb-6">
+            WEAR YOUR<br />
+            <span className="text-ps-red">VALUES.</span>
           </h2>
-          <p className="font-body text-lg text-gray-600 max-w-2xl mx-auto">
-            New designs drop weekly. Shop the full collection on our store.
+          <p className="text-ps-muted text-lg max-w-2xl font-medium">
+            Drop your email and get instant access to our full patriot resource library — printables, checklists, posters, and more. No cost. No catch.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {products.map((product) => (
-            <div key={product.id} className="flex flex-col bg-patriot-cream rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              {/* Image Placeholder */}
-              <div className={`w-full h-64 ${product.bgColor} flex items-center justify-center p-6 text-center`}>
-                <span className="font-heading text-white text-2xl font-bold uppercase drop-shadow-md">
-                  {product.name}
+        {/* Download Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+          {downloads.map((item) => (
+            <div
+              key={item.id}
+              className="bg-ps-container p-8 flex flex-col gap-4 hover:bg-ps-container-hi transition-colors group"
+            >
+              <div className="flex items-start justify-between">
+                <span className="text-4xl">{item.icon}</span>
+                <span className="text-[10px] font-headline font-black tracking-[0.15em] text-ps-gold/70 uppercase border border-ps-gold/20 px-2 py-0.5">
+                  {item.tag}
                 </span>
               </div>
-              
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-heading text-2xl font-bold text-patriot-navy mb-2 uppercase">
-                  {product.name}
+              <div className="flex-grow">
+                <h3 className="font-headline font-black text-xl text-white uppercase tracking-tight mb-2">
+                  {item.title}
                 </h3>
-                <p className="font-body text-gray-600 mb-4 flex-grow">
-                  {product.description}
+                <p className="text-ps-muted text-sm leading-relaxed">
+                  {item.description}
                 </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <span className="font-heading text-xl font-bold text-patriot-red">
-                    {product.price}
-                  </span>
-                  <Link 
-                    href="https://www.redbubble.com" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 bg-patriot-navy hover:bg-black text-white font-heading font-semibold uppercase tracking-wider text-sm transition-colors rounded-sm"
-                  >
-                    View on Store
-                  </Link>
-                </div>
               </div>
+              <Link
+                href="#signup"
+                className="text-ps-red font-headline font-black text-sm uppercase tracking-widest group-hover:text-white transition-colors flex items-center gap-2"
+              >
+                FREE DOWNLOAD
+                <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+              </Link>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            href="#signup"
+            className="inline-block bg-ps-red hover:bg-ps-red/80 text-white font-headline font-black text-lg px-12 py-5 uppercase tracking-tight transition-all active:scale-95"
+          >
+            GET THE FULL PACK — FREE
+          </Link>
         </div>
       </div>
     </section>
