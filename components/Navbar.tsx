@@ -10,7 +10,7 @@ export default function Navbar() {
     { label: "SHOP",      href: "#shop" },
     { label: "COFFEE",    href: "#coffee" },
     { label: "PARTNERS",  href: "#partners" },
-    { label: "COMMUNITY", href: "#signup" },
+    { label: "COMMUNITY", href: "/community" },
   ];
 
   return (
